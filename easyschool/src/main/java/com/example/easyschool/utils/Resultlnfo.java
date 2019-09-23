@@ -1,4 +1,4 @@
-package com.example.easyschool.model;
+package com.example.easyschool.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,6 +1,6 @@
 package com.example.easyschool.controller;
 
-import com.example.easyschool.model.Resultlnfo;
+import com.example.easyschool.utils.Resultlnfo;
 import com.example.easyschool.model.User;
 import com.example.easyschool.service.UserService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 public class userController {
     @Autowired
     private UserService userService;
-    @ApiOperation(value = "分页查询",notes = "")
+    @ApiOperation(value =  "分页查询",notes = "")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "")
     })

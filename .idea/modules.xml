@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CQCET__Easyschool.iml" filepath="$PROJECT_DIR$/CQCET__Easyschool.iml" />
       <module fileurl="file://$PROJECT_DIR$/easyschool/easyschool.iml" filepath="$PROJECT_DIR$/easyschool/easyschool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easyschool/easyschool.iml" filepath="$PROJECT_DIR$/easyschool/easyschool.iml" />
     </modules>
   </component>
 </project>
