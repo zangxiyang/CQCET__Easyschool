@@ -15,7 +15,6 @@ import java.util.List;
  * Author: 臧锡洋
  * Date: 2019-09-23-14:56
  */
-@Transactional
 public interface MessageRepository extends
         JpaRepository<Message,Integer>,JpaSpecificationExecutor {
 
@@ -25,5 +24,4 @@ public interface MessageRepository extends
 
     List<Message> findMessagesByGetUserIdAndSysStatus(String id , Integer status, Pageable pageable);
 
-    
 }

@@ -22,5 +22,11 @@ public interface MessageService {
     Page<Message> findSendMsgByUser(String id, Pageable pageable);
     //查询指定用户的系统通知
     Page<Message> findMsgBySys(String id,Pageable pageable);
+    //添加一条系统信息
+    Integer addMsgBySys(String content,User getUser);
+    //添加一条用户对用户信息,返回0则失败,返回1则成功
+    Integer addMsgByUser(String content,User getUser,User sendUser);
+    //删除一条信息,返回0则失败,返回1则成功
+    Integer delMsgByUser(Message msg);
 
 }

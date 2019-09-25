@@ -2,8 +2,11 @@ package com.example.easyschool.model;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * FileName: Message
@@ -17,25 +20,30 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "es_message")
+@EntityListeners(AuditingEntityListener.class)
 public class Message {
     //消息通知的唯一标识
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id ;
     //消息内容
-    @Column(nullable = false)
+    @Lob
+    @Column(nullable = false,columnDefinition="TEXT")
     private String msgContent;
     //消息内容的接受者
-    @Column(nullable = false)
-    private String getUserId;
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private User getUserId;
     //消息内容的发送者,这个字段可为空
-    @Column(nullable = true)
-    private String sendUserId;
+    @OneToOne
+    @JoinColumn(nullable = true)
+    private User sendUserId;
     //是否为系统通知的表示,0为系统通知,1为用户消息,这个字段不可为空
     @Column(nullable = false)
     private Integer sysStatus;
     //消息的创建时间
+    @CreatedDate
     @Column
-    private String CreateTime;
+    private Date CreateTime;
 
 }

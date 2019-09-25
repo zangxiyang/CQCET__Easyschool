@@ -1,19 +1,14 @@
 package com.example.easyschool.service.impl;
 
 import com.example.easyschool.model.Message;
+import com.example.easyschool.model.User;
 import com.example.easyschool.repository.MessageRepository;
-import com.example.easyschool.repository.Userepository;
 import com.example.easyschool.service.MessageService;
+import com.example.easyschool.utils.PredefineConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 /**
  * FileName: MessageServiceImpl
@@ -50,5 +45,52 @@ public class MessageServiceImpl implements MessageService {
     public Page<Message> findMsgBySys(String id,Pageable pageable) {
         return (Page<Message>) messageRepository.findMessagesByGetUserIdAndSysStatus(id,0,pageable);
     }
+
+    @Override
+    public Integer addMsgBySys(String content, User getUser) {
+        Message message = new Message();
+        message.setGetUserId(getUser)
+                .setSysStatus(PredefineConstant.MESSAGE_SYSTEM.get())
+                .setMsgContent(content);
+        return addMsg(message);
+
+    }
+
+    @Override
+    public Integer addMsgByUser(String content, User getUser, User sendUser) {
+        Message message = new Message();
+        message.setGetUserId(getUser)
+                .setSendUserId(sendUser)
+                .setSysStatus(PredefineConstant.MESSAGE_USER.get())
+                .setMsgContent(content);
+        return addMsg(message);
+    }
+
+    @Override
+    public Integer delMsgByUser(Message msg) {
+        try {
+            messageRepository.delete(msg);
+            return 1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    /**
+     * 添加信息
+     * @param message 当前的message对象
+     * @return 0添加失败,1成功
+     */
+    private Integer addMsg(Message message){
+        try {
+            messageRepository.save(message);
+            return 1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 
 }
