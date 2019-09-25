@@ -1,6 +1,6 @@
 package com.example.easyschool.controller;
 
-import com.example.easyschool.utils.Resultlnfo;
+import com.example.easyschool.utils.ResultInfo;
 import com.example.easyschool.model.User;
 import com.example.easyschool.service.UserService;
 import io.swagger.annotations.ApiImplicitParam;
@@ -27,12 +27,12 @@ public class userController {
             @ApiImplicitParam(name = "")
     })
     @GetMapping("/findAlluser")
-    public Resultlnfo<Page> finduser(@RequestParam(name = "size",defaultValue = "15",required = false)String size,
+    public ResultInfo<Page> finduser(@RequestParam(name = "size",defaultValue = "15",required = false)String size,
                                      @RequestParam(name = "page",defaultValue = "0",required = false)int page,
                                      @PageableDefault(value = 0,size = 15)Pageable pageable
                          ){
         User user=new User();
-        Resultlnfo<Page> resultlnfo=new Resultlnfo<>();
+        ResultInfo<Page> resultlnfo=new ResultInfo<>();
         try {
             Page<User> Plist=userService.findPage(user,pageable);
             resultlnfo.setRows(Plist);

@@ -4,11 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * FileName: Resultlnfo
+ * FileName: ResultInfo
  * Author:   刘帅
  * Date:     2019-9-21 10:52
  */
-public class Resultlnfo<T> {
+public class ResultInfo<T> {
     private Integer result;
     private String msg;
     private String data;

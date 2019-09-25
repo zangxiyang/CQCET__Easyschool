@@ -1,10 +1,8 @@
 package com.example.easyschool.controller;
 
 import com.example.easyschool.model.Message;
-import com.example.easyschool.model.User;
 import com.example.easyschool.service.MessageService;
-import com.example.easyschool.service.UserService;
-import com.example.easyschool.utils.Resultlnfo;
+import com.example.easyschool.utils.ResultInfo;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -33,10 +31,10 @@ public class MessageController {
             @ApiImplicitParam(name = "page" , value = "可空,默认为0,显示的页数",dataType = "int" ,paramType = "query")
     })
     @GetMapping("/findMsg")
-    public Resultlnfo<Page> findMsg(@RequestParam(name = "size",defaultValue = "15",required = false)String size,
-                                     @RequestParam(name = "page",defaultValue = "0",required = false)int page,
-                                     @PageableDefault(value = 0,size = 15)Pageable pageable){
-        Resultlnfo<Page> resultlnfo=new Resultlnfo<>();
+    public ResultInfo<Page> findMsg(@RequestParam(name = "size",defaultValue = "15",required = false)String size,
+                                    @RequestParam(name = "page",defaultValue = "0",required = false)int page,
+                                    @PageableDefault(value = 0,size = 15)Pageable pageable){
+        ResultInfo<Page> resultlnfo=new ResultInfo<>();
         try {
             Page<Message> Plist=messageService.findAllMsg(pageable);
             resultlnfo.setRows(Plist);
