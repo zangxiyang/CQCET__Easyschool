@@ -32,17 +32,17 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Page<Message> findGetMsgByUser(String id, Pageable pageable) {
+    public Page<Message> findGetMsgByUser(User id, Pageable pageable) {
         return (Page<Message>) messageRepository.findMessagesByGetUserId(id,pageable);
     }
 
     @Override
-    public Page<Message> findSendMsgByUser(String id, Pageable pageable) {
+    public Page<Message> findSendMsgByUser(User id, Pageable pageable) {
         return (Page<Message>) messageRepository.findMessagesBySendUserId(id,pageable);
     }
 
     @Override
-    public Page<Message> findMsgBySys(String id,Pageable pageable) {
+    public Page<Message> findMsgBySys(User id,Pageable pageable) {
         return (Page<Message>) messageRepository.findMessagesByGetUserIdAndSysStatus(id,0,pageable);
     }
 

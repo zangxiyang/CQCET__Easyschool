@@ -17,11 +17,11 @@ public interface MessageService {
     //根据Message信息ID查询
     Message findMsgById(Integer id);
     //查询指定用户接受的Message信息
-    Page<Message> findGetMsgByUser(String id, Pageable pageable);
+    Page<Message> findGetMsgByUser(User user, Pageable pageable);
     //查询指定用户发送的Message信息
-    Page<Message> findSendMsgByUser(String id, Pageable pageable);
+    Page<Message> findSendMsgByUser(User user, Pageable pageable);
     //查询指定用户的系统通知
-    Page<Message> findMsgBySys(String id,Pageable pageable);
+    Page<Message> findMsgBySys(User user,Pageable pageable);
     //添加一条系统信息
     Integer addMsgBySys(String content,User getUser);
     //添加一条用户对用户信息,返回0则失败,返回1则成功
