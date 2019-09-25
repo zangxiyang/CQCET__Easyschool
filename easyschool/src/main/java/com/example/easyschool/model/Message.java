@@ -1,11 +1,13 @@
 package com.example.easyschool.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -21,7 +23,8 @@ import java.util.Date;
 @Entity
 @Table(name = "es_message")
 @EntityListeners(AuditingEntityListener.class)
-public class Message {
+public class Message implements Serializable {
+    private static final long serialVersionUID = 6525870128995764506L;
     //消息通知的唯一标识
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

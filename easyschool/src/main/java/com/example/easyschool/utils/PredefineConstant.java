@@ -7,7 +7,8 @@ package com.example.easyschool.utils;
  * 描述: 预定义常量池
  */
 public enum  PredefineConstant {
-    MESSAGE_SYSTEM(0),MESSAGE_USER(1);
+    MESSAGE_SYSTEM(0),MESSAGE_USER(1),
+    RESULT_SUCCESS(200),RESULT_ERRO(201);
 
     private final Integer i;
 
