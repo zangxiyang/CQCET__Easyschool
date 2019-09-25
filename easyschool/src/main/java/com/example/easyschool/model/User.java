@@ -11,7 +11,7 @@ import java.util.Date;
  * Date:     2019-9-20 17:38
  */
 @Entity
-@Table(name = "tb_user")
+@Table(name = "es_user")
 @GenericGenerator(name = "jpa-uuid",strategy = "uuid")
 public class User {
     @Id

@@ -1,19 +1,17 @@
-package com.example.easyschool.model;
+package com.example.easyschool.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * FileName: Resultlnfo
+ * FileName: Result
  * Author:   刘帅
- * Date:     2019-9-21 10:52
+ * Date:     2019-9-21 10:05
  */
-public class Resultlnfo<T> {
+public class Result {
     private Integer result;
     private String msg;
     private String data;
-    private T rows;
-    private int total;
 
     public Integer getResult() {
         if (result==null||"".equals(result))
@@ -39,22 +37,6 @@ public class Resultlnfo<T> {
 
     public void setData(String data) {
         this.data = data;
-    }
-
-    public T getRows() {
-        return rows;
-    }
-
-    public void setRows(T rows) {
-        this.rows = rows;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
     }
 
     public Result validata(String page,String size){

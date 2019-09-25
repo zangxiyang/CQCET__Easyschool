@@ -1,7 +1,8 @@
-package com.example.easyschool.service;
+package com.example.easyschool.service.impl;
 
 import com.example.easyschool.model.User;
 import com.example.easyschool.repository.Userepository;
+import com.example.easyschool.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +20,7 @@ import javax.persistence.criteria.Root;
  * Date:     2019-9-21 9:02
  */
 @Service
-public class UserServiceimpl implements UserService{
+public class UserServiceimpl implements UserService {
 
     @Autowired
     private Userepository userepository;
